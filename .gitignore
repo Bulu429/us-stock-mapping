@@ -1,0 +1,9 @@
+# 敏感 / 二进制：持仓名单（Pages 用不到，避免公开）
+海外关注名单.xlsx
+
+# Obsidian / 本地草稿 / 临时文件
+.obsidian/
+*.tmp
+~$*
+.DS_Store
+Thumbs.db
