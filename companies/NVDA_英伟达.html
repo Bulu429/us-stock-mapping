@@ -1097,7 +1097,7 @@ a:hover{text-decoration:underline}
         </div>
         <div class="r5-body">
           <div class="r5-pos">定位：专做<b>低延迟 token 输出</b>的解码层——SRAM-only，与 NVL72 的大 HBM 容量<b>互补</b>。</div>
-          <div class="r5-spec">每机架 <b>256 个 LPU，SRAM-only 架构</b>；服务的是 agentic 场景下"机器并发生成"的速度，而非人类阅读速度。<b>GPU 之外的第三类芯片</b>，连英伟达都把它纳入 POD。</div>
+          <div class="r5-spec">LP30（Groq 3 代，英伟达 $20B "收购")，500MB SRAM、SF4 工艺、<b>无 HBM / 无 TSMC N3 / 无先进封装</b> → <b>不吃 TSMC/HBM 额度，是别人拿不到的纯增量产能</b>。机制是 <b>AFD（注意力-FFN 解耦）</b>：decode 里 <b>FFN 跑 LPU、attention 留 GPU</b>。</div>
           <div class="r5-foot">
             <span><span class="k">对应</span><span class="r5-map">拓扑·新增"解码层" ｜ ⑤内存墙·近存解码(SRAM)</span></span>
             <span class="r5-a"><span class="k">A股</span><b>SRAM / 存算一体 / 近存计算</b></span>
@@ -1131,7 +1131,7 @@ a:hover{text-decoration:underline}
         </div>
         <div class="r5-body">
           <div class="r5-pos">定位：把<b>百万 GPU</b> 连起来的网络 fabric——Spectrum-X Ethernet Photonics。</div>
-          <div class="r5-spec">基于 <b>CPO</b> 的交换机，200G SerDes，<b>已进入生产</b>；vs 传统光模块 5x 能效 / 5x uptime / 1.3x 部署速度；搭 BlueField-4 DPU 800Gb/s 多租户隔离。</div>
+          <div class="r5-spec">基于 <b>CPO</b> 的交换机（scale-out），200G SerDes，<b>已进入生产</b>；vs 传统光模块 5x 能效 / 5x uptime。<b style="color:#b45309">注：scale-up CPO 仅用于跨机架大 world size（NVL576/1152，2027 后期），机架内仍是铜——"能用铜就用铜"。</b></div>
           <div class="r5-foot">
             <span><span class="k">对应</span><span class="r5-map">拓扑·交换机 + CPO + DPU ｜ 互联墙(scale-out·速率·距离)</span></span>
             <span class="r5-a"><span class="k">A股</span><b>光模块 / CPO W3 · SerDes W2</b></span>
@@ -1215,7 +1215,7 @@ a:hover{text-decoration:underline}
         <div class="lane">
           <div class="lane-req" style="border-color:#7c3aed">
             <div class="lr-t" style="color:#6b21a8">② 低延迟解码（近存 / SRAM）</div>
-            <div class="lr-d">decode 瓶颈是 KV 数据搬运、非 FLOPs；SRAM 贴近计算、减少关键路径移动 → <em style="color:#7c3aed;font-style:normal;font-weight:700">对应 ④ 的 LPX 解码机架</em></div>
+            <div class="lr-d">decode 瓶颈是 KV 搬运、非 FLOPs；<b>AFD</b> 把 decode 再拆成 attention(KV受限→GPU)/FFN(确定性→LPU)，SRAM 贴近计算减少搬运 → <em style="color:#7c3aed;font-style:normal;font-weight:700">对应 ④ 的 LPX 机架</em></div>
           </div>
           <div class="lane-arrow">→</div>
           <div class="lane-fill">
@@ -1231,7 +1231,7 @@ a:hover{text-decoration:underline}
         <div class="lane">
           <div class="lane-req" style="border-color:#7c3aed">
             <div class="lr-t" style="color:#6b21a8">③ 上下文记忆 / 存储机架</div>
-            <div class="lr-d">GTC：存储是"第二大计算支出"；KV cache / 长上下文 / 数据落盘回灌 → <em style="color:#7c3aed;font-style:normal;font-weight:700">对应 ④ 的 STX 存储机架（CMX）</em></div>
+            <div class="lr-d">存储是"第二大计算支出"；CMX 新增 <b>"G3.5" NVMe 层</b>（DRAM 与共享存储之间）专做 KV cache 卸载 → <em style="color:#7c3aed;font-style:normal;font-weight:700">对应 ④ 的 STX 存储机架</em></div>
           </div>
           <div class="lane-arrow">→</div>
           <div class="lane-fill">
@@ -1265,6 +1265,8 @@ a:hover{text-decoration:underline}
             <span class="fchip" style="border-color:#93c5fd;color:#1d4ed8">DSP</span>
             <span class="fchip" style="border-color:#93c5fd;color:#1d4ed8">Retimer / CDR</span>
             <span class="fchip" style="border-color:#93c5fd;color:#1d4ed8">低损耗 CCL（M8/M9）</span>
+            <span class="fchip" style="border-color:#93c5fd;color:#1d4ed8">HVLP4 铜箔</span>
+            <span class="fchip" style="border-color:#93c5fd;color:#1d4ed8">石英布 / 玻璃布（Q-glass）</span>
             <span class="fchip" style="border-color:#93c5fd;color:#1d4ed8">光器件（EML / 硅光）</span>
           </div>
           <div class="lane-w">
@@ -1276,12 +1278,12 @@ a:hover{text-decoration:underline}
         <div class="lane">
           <div class="lane-req" style="border-color:#1d4ed8">
             <div class="lr-t" style="color:#1d4ed8">更多通道 / 布线密度</div>
-            <div class="lr-d">芯片 I/O 数量爆炸，上千对差分线要"逃逸"出来 → 更多层、更高密度</div>
+            <div class="lr-d">芯片 I/O 爆炸，上千对差分线要"逃逸" → 更多层、更高密度；VR 走 cableless，高端 PCB 面积 GB300→VR <b>+2.3×</b></div>
           </div>
           <div class="lane-arrow">→</div>
           <div class="lane-fill">
             <span class="fchip" style="border-color:#93c5fd;color:#1d4ed8">PCB 层数（22→26→32 层）</span>
-            <span class="fchip" style="border-color:#93c5fd;color:#1d4ed8">高速连接器</span>
+            <span class="fchip" style="border-color:#93c5fd;color:#1d4ed8">B2B 板对板连接器</span>
             <span class="fchip" style="border-color:#93c5fd;color:#1d4ed8">封装 fan-out</span>
             <span class="fchip" style="border-color:#93c5fd;color:#1d4ed8">高速铜缆</span>
           </div>
@@ -1294,7 +1296,7 @@ a:hover{text-decoration:underline}
         <div class="lane">
           <div class="lane-req" style="border-color:#1d4ed8">
             <div class="lr-t" style="color:#1d4ed8">更长互联距离 / reach</div>
-            <div class="lr-d">铜在高速下物理极限 ~1–2m；集群→跨数据中心（scale-across）必须转光</div>
+            <div class="lr-d">铜高速极限 ~1–2m，集群→跨数据中心必须转光。<b style="color:#b45309">但 CPO 推迟：仅跨机架大 world size、2027 后期起量，机架内仍铜 → 铜连接/AEC 中期反而更受益</b></div>
           </div>
           <div class="lane-arrow">→</div>
           <div class="lane-fill">
@@ -1405,11 +1407,11 @@ a:hover{text-decoration:underline}
         <div class="ml-body">
           <div>
             <div class="ml-t" style="color:#15803d">光互联</div>
-            <div class="ml-d">光模块 / CPO / 光纤 / SerDes。互联墙的<b>"速率 + 距离"双轴</b>，每代被英伟达逼着升级（800G→1.6T、铜→光→CPO），<b>弹性最大、不可替代</b>。</div>
+            <div class="ml-d">光模块 / 光纤 / SerDes / CPO。互联墙的<b>"速率 + 距离"双轴</b>，每代被逼升级（800G→1.6T），<b>弹性最大</b>。<b>注：CPO 推迟 → 高速铜连接/AEC 中期同样是主线</b>（机架内仍铜）。</div>
           </div>
           <div>
             <div class="ml-t" style="color:#15803d">PCB / CCL</div>
-            <div class="ml-d">高层数(22→26→32) + M7→M8→M9。互联墙的<b>"通道 + 信号完整性"</b>，<b>结构性升级、高良率门槛</b>，单柜 BOM <b>+233%</b> 最锋利。</div>
+            <div class="ml-d">高层数(22→26→32) + 高端面积 <b>+2.3×</b>。可投子链：<b>CCL(M8/M9) · HVLP4 铜箔 · 石英布/玻璃布 · B2B 连接器</b>。高良率门槛，单柜 BOM <b>+233%</b> 最锋利。</div>
           </div>
         </div>
       </div>

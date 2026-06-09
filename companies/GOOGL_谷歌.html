@@ -340,6 +340,14 @@ a:hover{text-decoration:underline}
       代际提升（vs Ironwood）：训练性价比最高 <strong>2.7×</strong>、推理（大 MoE 低延迟）最高 <strong>+80%</strong>、能效最高 <strong>2×</strong>。
       <b>TPU = 博通（Broadcom）联合设计的定制 ASIC，台积电代工 + CoWoS 封装 + HBM</b>——这条供应链与 NVDA 高度重叠，但互联层完全不同（见 ④）。
     </div>
+
+    <div style="margin-top:14px;background:var(--up-bg);border:1px solid #86efac;border-radius:9px;padding:12px 15px;font-size:11.5px;line-height:1.75">
+      💡 <b style="color:#15803d">为什么客户要 TPU：系统 &gt; 微架构，而微架构现在也追上了</b>（SemiAnalysis）：<br>
+      ① 微架构<b>已追平</b>——Ironwood 对 GB200 的 FLOPs/带宽仅小差距、容量持平（8-Hi HBM3E），仅 GA 晚 1 年；<br>
+      ② <b>TCO：Ironwood 3D Torus 比 GB200 低 ~44%</b>（自用口径）；外部租赁比 GB200 低 ~30%、比 GB300 低 ~41%；<br>
+      ③ <b>TPU 实测 MFU 反而高于 Blackwell</b>（英伟达标称 FLOPs 靠 DVFS 灌水）→ Anthropic ~40% MFU，每有效 PFLOP 成本比 GB300 低 ~52%；<br>
+      ④ <b>Gemini 3（当前 SOTA）全程 TPU 训练</b>——证明 TPU 能扛最难的前沿预训练。
+    </div>
   </div>
 </section>
 
@@ -353,6 +361,15 @@ a:hover{text-decoration:underline}
     <div class="mid-thesis">
       💡 核心判断：Google 的财报同样难有惊喜（市场已知它强）。作为"<span class="em">第二根主干</span>"，真正该跟踪的是它<b>相对 NVDA 主干的"此消彼长"</b>，以及它<b>独有的、对 A 股不同的供应链权重</b>——这 3 条：
     </div>
+
+    <div style="background:var(--dn-bg);border:1px solid #fecaca;border-radius:9px;padding:12px 15px;margin-bottom:16px;font-size:11.5px;line-height:1.7">
+      🔥 <b style="color:var(--dn)">实证 · Anthropic 100 万 TPU 交易</b>（副干从"自用"→"商用主干"的里程碑）：<br>
+      ① <b>40 万 Ironwood（~$100亿成品机柜）由博通直接卖给 Anthropic</b>（博通财报点名第 4 大客户），Fluidstack 装机；<br>
+      ② <b>60 万经 GCP 租赁（~$420亿 RPO）</b>，占 Q3 GCP backlog 增量大头；<br>
+      ③ DC 基建来自<b>加密矿企 TeraWulf(WULF) / Cipher(CIFR)</b>；Google 用"<b>表外信用背书</b>"成 neocloud 融资新范式 → <b>矿企转 AI（IREN / APLD / WULF / CIFR）大受益</b>；后续 Meta / OAI / SSI / xAI 都在谈。
+      <div style="margin-top:7px;font-size:11px"><span style="color:var(--text2)">映射 → </span><b style="color:var(--accent)">博通 ASIC（W5）· neocloud 矿企（W7）</b></div>
+    </div>
+
     <div class="cog-grid">
       <div class="cog-card">
         <div class="cog-no">1</div>
@@ -438,7 +455,7 @@ a:hover{text-decoration:underline}
     <div class="topo-map">
       <div class="tm" style="border-left-color:#0891b2">
         <div class="tm-t" style="color:#0e7490">★ OCS 光路交换（副干独有）</div>
-        <div class="tm-d">Google 用 <b>OCS（MEMS 光开关）</b>替代电交换机做组间全连接 → <b>对光开关/光模块/光纤依赖结构性高于 NVDA</b>。<br><b>映射 → </b>光模块·光纤·MEMS 光开关（W3）</div>
+        <div class="tm-d">Google 用 <b>OCS（MEMS 光开关）</b>替代电交换机做组间全连接。<b>每颗 TPUv7 配 ~1.5 个光模块</b>（按 cube 内位置）；用的是 <b>FR 光模块 + 光环行器(circulator) + CWDM8</b>（8 波长→1 根光纤）——<b>和 NVDA 的可插拔/CPO 完全不同的一条光链</b>。<br><b>映射 → </b>光模块·光纤·MEMS 光开关·<b>光环行器/CWDM</b>（W3）</div>
       </div>
       <div class="tm" style="border-left-color:#f59e0b">
         <div class="tm-t" style="color:#b45309">组内铜缆全连接</div>
@@ -448,6 +465,10 @@ a:hover{text-decoration:underline}
         <div class="tm-t" style="color:var(--accent)">TPU 芯片本体 = 博通定制 ASIC</div>
         <div class="tm-d">TPU 由 <b>博通联合设计</b>，台积电代工 + CoWoS + HBM。SerDes / 定制 IP 是博通核心价值。<br><b>映射 → </b>ASIC / SerDes（W5 / W2）</div>
       </div>
+    </div>
+
+    <div class="note" style="margin-top:12px">
+      📌 <b>OCS 经济性</b>（SemiAnalysis）：4,096 TPU 只需 <b>48 个 OCS</b> vs 568 个 InfiniBand 交换机；网络成本 <b>&lt;5% 总 CapEx</b>、&lt;3% 总功耗。OCS 单价虽贵 3–4×，但数量极少 + 省掉多层电交换，整体更省电更省钱——<b>这是 Google 敢把组间互联全走光的底气</b>。
     </div>
   </div>
 </section>
@@ -502,12 +523,13 @@ a:hover{text-decoration:underline}
       <div class="wall-h" style="background:#0891b2">🧱 ③ 互联墙 ★副干最大差异 <span class="wsub">组内铜、组间光（OCS）；对光依赖结构性更高</span><span class="winv"><span class="inv s">A股可投性：强</span></span></div>
       <div class="spine">
         <div class="lane">
-          <div class="lane-req" style="border-color:#0891b2"><div class="lr-t" style="color:#0e7490">组间互联 / 距离（光）</div><div class="lr-d"><em>OCS 光路交换（MEMS）替代电交换机</em>；scale-up/out 都更早用光 → 光模块/光纤/光开关需求结构性更重</div></div>
+          <div class="lane-req" style="border-color:#0891b2"><div class="lr-t" style="color:#0e7490">组间互联 / 距离（光）</div><div class="lr-d"><em>OCS 光路交换（MEMS）替代电交换机</em>；<b>每颗 TPUv7 ~1.5 个光模块</b>，scale-up 都更早用光 → 光依赖结构性更重</div></div>
           <div class="lane-arrow">→</div>
           <div class="lane-fill">
             <span class="fchip" style="border-color:#67e8f9;color:#0e7490">OCS 光路交换</span>
             <span class="fchip" style="border-color:#67e8f9;color:#0e7490">MEMS 光开关</span>
-            <span class="fchip" style="border-color:#67e8f9;color:#0e7490">光模块 / 光纤</span>
+            <span class="fchip" style="border-color:#67e8f9;color:#0e7490">FR 光模块 / 光纤</span>
+            <span class="fchip" style="border-color:#67e8f9;color:#0e7490">光环行器 / CWDM</span>
           </div>
           <div class="lane-w"><span class="inv s">强</span><span class="wt" style="background:#16a34a">W3</span></div>
         </div>
@@ -564,7 +586,7 @@ a:hover{text-decoration:underline}
         <tr><td class="dim">芯片来源</td><td class="nv">自研架构 + 台积代工</td><td class="gg"><b>博通联合设计</b> + 台积代工</td></tr>
         <tr><td class="dim">Scale-up 互联</td><td class="nv">NVLink + 铜缆背板</td><td class="gg">ICI + 组内铜缆</td></tr>
         <tr><td class="dim">Scale-out 互联</td><td class="nv">Spectrum-X / InfiniBand<br>（<b>电交换机 + 可插拔光</b>）</td><td class="gg"><b>OCS 光路交换（MEMS）</b><br>组间全用光</td></tr>
-        <tr><td class="dim">软件栈</td><td class="nv"><b>CUDA</b>（最深护城河）</td><td class="gg">JAX / XLA / Pathways / Pallas</td></tr>
+        <tr><td class="dim">软件栈</td><td class="nv"><b>CUDA</b>（最深护城河，但<b style="color:var(--dn)">在松动</b>）</td><td class="gg">JAX / XLA / Pathways / Pallas；<b>正补 PyTorch 原生 + vLLM/SGLang</b>（Meta 重新有兴趣买 TPU）</td></tr>
         <tr><td class="dim">商业模式</td><td class="nv">卖系统给<b>所有人</b></td><td class="gg">主要<b>自用</b> + GCP 出租</td></tr>
         <tr><td class="dim">对"光"的依赖</td><td class="nv">高（scale-out）</td><td class="gg"><b>更高</b>（OCS 让组间互联也走光）</td></tr>
       </tbody>
@@ -588,7 +610,7 @@ a:hover{text-decoration:underline}
 
     <div class="concl">
       🎯 <b>结论</b>：Google 副干的存在，给"只押 NVDA"上了一道保险。对 A 股最优的姿势，是<b>重仓"两根主干都吃"的环节（光 / PCB / 铜连接 / 被动 / 液冷）</b>，再用"偏 NVDA / 偏 ASIC"两侧做 alpha——而<b>两根主干的份额此消彼长（NVDA GPU vs TPU/ASIC），就是这套映射的总指挥棒</b>。
-      <div style="font-size:10px;color:var(--text2);font-weight:400;margin-top:8px">资料来源：Alphabet 业绩会档案（Q1CY24–Q1CY26）、Google Cloud《TPU 8t/8i 架构深度解析》（2026-04-23）。市值为约数，待核实更新。</div>
+      <div style="font-size:10px;color:var(--text2);font-weight:400;margin-top:8px">资料来源：Alphabet 业绩会档案（Q1CY24–Q1CY26）、Google Cloud《TPU 8t/8i 架构深度解析》（2026-04-23）、SemiAnalysis《Google TPUv7 — The 900lb Gorilla》《Systems Matter More Than Microarchitecture》。市值为约数，待核实更新。</div>
     </div>
   </div>
 </section>
