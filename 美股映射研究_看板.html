@@ -78,7 +78,7 @@ a:hover{text-decoration:underline}
 
 <header class="hdr">
   <div class="hdr-l">
-    <a class="hdr-back" href="../行业看板/总看板.html">↗ 研究看板</a>
+    <a class="hdr-back" href="../../../总看板.html">← 总看板</a>
     <div>
       <div class="hdr-title">🌎 美股映射研究</div>
       <div class="hdr-sub">海外映射源 → A股行业看板 / 标的 · 56 家分类映射 · 补课排期</div>
@@ -87,7 +87,7 @@ a:hover{text-decoration:underline}
     <span class="badge b-blue">每周 2-3 家 · 2 个月</span>
   </div>
   <div class="hdr-meta">
-    更新：2026-06-05<br>
+    更新：2026-06-12（市值实时校准）<br>
     底稿：<a href="美股映射研究_看板.md">美股映射研究_看板.md</a>
   </div>
 </header>
@@ -103,12 +103,12 @@ a:hover{text-decoration:underline}
   <div class="sec-body">
     <div class="kpi-grid">
       <div class="kpi"><div class="kpi-val">56</div><div class="kpi-lbl">映射源总数</div></div>
-      <div class="kpi"><div class="kpi-val" style="color:#16a34a">2</div><div class="kpi-lbl">已补课（NVDA·GOOGL）</div></div>
+      <div class="kpi"><div class="kpi-val" style="color:#16a34a">4</div><div class="kpi-lbl">已补课（NVDA·GOOGL·AVGO·MRVL）</div></div>
       <div class="kpi"><div class="kpi-val">2-6</div><div class="kpi-lbl">每周研究家数</div></div>
       <div class="kpi"><div class="kpi-val">8 周</div><div class="kpi-lbl">8 主题 · 层次推进</div></div>
     </div>
     <div style="font-size:11px;color:var(--text2);margin-bottom:4px">补课进度（技术路线 + 对应交易已填写）</div>
-    <div class="prog-wrap"><div class="prog-bar" style="width:4%">2/56</div></div>
+    <div class="prog-wrap"><div class="prog-bar" style="width:7%">4/56</div></div>
 
     <div style="font-size:13px;font-weight:800;margin:16px 0 8px;padding-left:8px;border-left:3px solid var(--accent)">▍ 主题排期（按认知层次从内到外推进，核心公司多周出现）</div>
     <table class="ctable">
@@ -139,6 +139,10 @@ a:hover{text-decoration:underline}
     <div style="font-size:13px;line-height:1.8;background:var(--accent-bg);border:1px solid var(--accent2);border-radius:9px;padding:13px 16px;margin-bottom:16px">
       英伟达和谷歌的<b>产品线布局决定行业走势</b>，因此具备"<b style="color:var(--accent)">点石成金</b>"的能力。映射他们有<b>两种思路</b>：
       ① <b>BOM 拆解</b>——拆单元节点的<b>价值量构成</b>；② <b>技术墙</b>——在他们正攻关的物理墙上找<b>优势企业（技术主干）</b>。
+    </div>
+
+    <div style="font-size:13px;line-height:1.8;background:var(--up-bg);border:1px solid #86efac;border-radius:9px;padding:13px 16px;margin-bottom:16px">
+      <b style="color:var(--up)">📌 W1 产业总结</b>：不管是英伟达还是谷歌，<b>单计算节点的算力提升都已撞墙</b>（功耗/散热/制程瓶颈）——节点本身做不大了，只能靠<b>把更多节点连接起来</b>堆算力。因此<b>互联（节点之间 + 节点内部）的重要性正在系统性变高</b>，这是 W2/W3 光互联、PCB 成为映射主线的根本产业逻辑。
     </div>
 
     <div style="font-size:12px;font-weight:700;color:var(--text2);margin-bottom:8px">映射标的（按"是否解决技术问题"分主次）</div>
@@ -175,6 +179,64 @@ a:hover{text-decoration:underline}
   </div>
 </section>
 
+<!-- ====== 模块2.6：W2 映射总结 ====== -->
+<section class="sec">
+  <div class="sec-hd" onclick="toggleSec(this)">
+    <div class="sec-ttl"><span class="icon">🗂️</span>W2 映射总结 · Scale-up 互联两个核心供应商（AVGO / MRVL）</div>
+    <span class="sec-arrow">▼</span>
+  </div>
+  <div class="sec-body">
+
+    <div style="font-size:13px;line-height:1.8;background:var(--accent-bg);border:1px solid var(--accent2);border-radius:9px;padding:13px 16px;margin-bottom:16px">
+      NVDA 用 <b>NVLink</b> 定义了 Scale-up（节点内 / 节点间互联）的私有标准；<b>AVGO</b> 和 <b>MRVL</b> 是这一层的两个核心供应商——
+      AVGO 主导<b>开放以太网交换芯片</b>（Tomahawk）并为各家定制 ASIC 做配套芯片；MRVL 提供<b>连接生态的全栈产品</b>（光 DSP / SerDes / Retimer / CPO）。
+      二者的产品节奏和指引，决定了 Scale-up <b>从铜向光切换</b>的速度。
+    </div>
+
+    <div style="font-size:13px;line-height:1.8;background:var(--up-bg);border:1px solid #86efac;border-radius:9px;padding:13px 16px;margin-bottom:16px">
+      <b style="color:var(--up)">📌 W2 产业总结</b>：W1 判断"节点撞墙后转向连接"，在 Scale-up 层面的具体兑现就是<b>铜缆向光 / CPO 的切换</b>。
+      AVGO 的交换芯片路标（102.4T Tomahawk 6 量产、200G→224G SerDes）和 MRVL 的光 DSP / TIA 出货节奏，
+      是判断 A 股<b>交换芯片、PCB 载板、光模块、CXL/Retimer</b> 四条链景气拐点的最直接信号。
+    </div>
+
+    <div style="font-size:12px;font-weight:700;color:var(--text2);margin-bottom:8px">映射标的（按"对应供应商环节"分类）</div>
+    <table class="ctable">
+      <thead><tr><th style="width:110px">标的</th><th style="width:150px">对应</th><th>逻辑</th><th style="width:150px">A 股标的</th><th style="width:90px">展开</th></tr></thead>
+      <tbody>
+        <tr style="border-left:3px solid var(--up)">
+          <td><strong style="color:#15803d">交换芯片</strong><span class="tag tag-up">核心</span></td>
+          <td>AVGO Tomahawk 开放网络</td>
+          <td>102.4T TH6 已量产，200G→224G SerDes 为<b>技术路标</b>；倒逼<b>国产替代 0→1</b></td>
+          <td>盛科通信 / 中兴微</td>
+          <td><a href="companies/AVGO_博通.html">→ AVGO</a></td>
+        </tr>
+        <tr style="border-left:3px solid var(--up)">
+          <td><strong style="color:#15803d">光 DSP / 光模块</strong><span class="tag tag-up">核心</span></td>
+          <td>MRVL 光互联（PAM DSP 为主力）</td>
+          <td>MRVL 光互联营收 / 指引为<b>同步指标</b>；NPO/CPO 打开数百亿利润空间</td>
+          <td>中际旭创 / 天孚通信</td>
+          <td><a href="companies/MRVL_迈威尔.html">→ MRVL</a></td>
+        </tr>
+        <tr style="border-left:3px solid var(--warn)">
+          <td><strong style="color:#b45309">高速 PCB / CCL</strong><span class="tag tag-warn">配套放量</span></td>
+          <td>AVGO + MRVL 定制 ASIC 配套载板</td>
+          <td>M6/M7 CCL 已涨价 <b>20%+</b>，M8 高端 PCB <b>Q3 供需缺口扩大</b></td>
+          <td>沪电 / 深南电路 / 胜宏科技 / 鹏鼎</td>
+          <td><a href="companies/AVGO_博通.html">→ AVGO</a> / <a href="companies/MRVL_迈威尔.html">→ MRVL</a></td>
+        </tr>
+        <tr style="border-left:3px solid #93c5fd">
+          <td><strong style="color:#1d4ed8">CXL / PCIe / Retimer</strong><span class="tag tag-blue">0→1 增量</span></td>
+          <td>MRVL 交换 + TIA/Driver；AVGO 以太网外溢需求</td>
+          <td>GPU : Scale-up switch 配比 <b>4:1→2:1→1:1</b>，Scale-up 交换<b>0→1 爆发期</b></td>
+          <td>澜起科技 / 裕太微 / 优迅股份</td>
+          <td><a href="companies/MRVL_迈威尔.html">→ MRVL</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:8px;font-size:11px;color:var(--text2)">📌 详细推演见 <a href="companies/AVGO_博通.html">AVGO 公司页</a>「在双主干格局中的位置」与 <a href="companies/MRVL_迈威尔.html">MRVL 公司页</a>「A 股映射」。</div>
+  </div>
+</section>
+
 <!-- ====== 模块3：全量映射框架表 ====== -->
 <section class="sec">
   <div class="sec-hd" onclick="toggleSec(this)">
@@ -187,12 +249,12 @@ a:hover{text-decoration:underline}
       <tbody>
         <!-- ===== W1 ===== -->
         <tr style="background:#fff7ed"><td colspan="5" style="font-size:11px;font-weight:700;color:var(--accent);padding:5px 8px">📅 W1 · 两根主干——定义 AI 计算最小单位的两套架构（NVDA 主干 / Google 副干）</td></tr>
-        <tr><td><strong>NVDA.O</strong></td><td>英伟达 <span class="tag tag-blue" style="font-size:9px;padding:1px 4px">主干 · W1+W2</span></td><td class="num">5.3万亿$</td><td><a href="companies/NVDA_英伟达.html">→ 查看公司页</a></td><td>🟢</td></tr>
-        <tr><td><strong>GOOGL.O</strong></td><td>谷歌-A <span class="tag tag-blue" style="font-size:9px;padding:1px 4px">副干 · W1+W5</span></td><td class="num">4.5万亿$</td><td><a href="companies/GOOGL_谷歌.html">→ 查看公司页</a></td><td>🟢</td></tr>
+        <tr><td><strong>NVDA.O</strong></td><td>英伟达 <span class="tag tag-blue" style="font-size:9px;padding:1px 4px">主干 · W1+W2</span></td><td class="num">5.2万亿$</td><td><a href="companies/NVDA_英伟达.html">→ 查看公司页</a></td><td>🟢</td></tr>
+        <tr><td><strong>GOOGL.O</strong></td><td>谷歌-A <span class="tag tag-blue" style="font-size:9px;padding:1px 4px">副干 · W1+W5</span></td><td class="num">4.34万亿$</td><td><a href="companies/GOOGL_谷歌.html">→ 查看公司页</a></td><td>🟢</td></tr>
         <!-- ===== W2 ===== -->
         <tr style="background:#eff6ff"><td colspan="5" style="font-size:11px;font-weight:700;color:#1d4ed8;padding:5px 8px">📅 W2 · Scale-up：把最小单位互联成更大计算单元</td></tr>
-        <tr><td><strong>AVGO.O</strong></td><td>博通 <span class="tag tag-blue" style="font-size:9px;padding:1px 4px">W2+W5</span></td><td class="num">2.0万亿$</td><td><span class="tag tag-up">✓ 样例</span> 见模块五</td><td>🟢</td></tr>
-        <tr><td><strong>MRVL.O</strong></td><td>迈威尔科技 <span class="tag tag-blue" style="font-size:9px;padding:1px 4px">W2+W5</span></td><td class="num">2768亿$</td><td><span class="tag tag-gray">待补课</span></td><td>⚪</td></tr>
+        <tr><td><strong>AVGO.O</strong></td><td>博通 <span class="tag tag-blue" style="font-size:9px;padding:1px 4px">W2+W5</span></td><td class="num">1.83万亿$</td><td><a href="companies/AVGO_博通.html">→ 查看公司页</a>（交换芯片+定制ASIC双主线）</td><td>🟢</td></tr>
+        <tr><td><strong>MRVL.O</strong></td><td>迈威尔科技 <span class="tag tag-blue" style="font-size:9px;padding:1px 4px">W2+W5</span></td><td class="num">2456亿$</td><td><a href="companies/MRVL_迈威尔.html">→ 查看公司页</a>（连接瓶颈旗手）</td><td>🟢</td></tr>
         <!-- ===== W3 ===== -->
         <tr style="background:#f0fdf4"><td colspan="5" style="font-size:11px;font-weight:700;color:#047857;padding:5px 8px">📅 W3 · Scale-up / Scale-out 的实现——光器件（光模块 / 光纤 / 线缆）</td></tr>
         <tr><td><strong>LITE.O</strong></td><td>Lumentum</td><td class="num">735亿$</td><td><span class="tag tag-gray">待补课</span></td><td>⚪</td></tr>
@@ -298,7 +360,7 @@ a:hover{text-decoration:underline}
 </div>
 
 <div class="foot">
-  美股映射研究 · 独立项目 · 2026-06-05 · <a href="../行业看板/总看板.html">↗ 研究看板</a>
+  美股映射研究 · 独立项目 · 2026-06-05 · <a href="../../../总看板.html">← 总看板</a>
 </div>
 
 <script>
